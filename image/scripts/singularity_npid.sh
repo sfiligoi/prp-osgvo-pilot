@@ -51,5 +51,5 @@ do
     fi
 done
 
-exec /usr/bin/singularity.org "${options[@]}"
+exec /cvmfs/oasis.opensciencegrid.org/mis/singularity/bin/singularity "${options[@]}"
 
