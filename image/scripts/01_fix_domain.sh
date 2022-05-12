@@ -15,7 +15,9 @@ hstr=`echo "${PHYSICAL_HOSTNAME}" | tr '.' '-'`
 
 # k8s nodes have no domain, which is annoying
 # Add it here
-cp /etc/hosts /tmp/hosts && sed "s/\(${HOSTNAME}\)/\1\.${hstr}.${K8S_NAMESPACE}.${K8S_DOMAIN} \1/" /tmp/hosts > /etc/hosts && rm -f /tmp/hosts
+export DOMAIN=${hstr}.${K8S_NAMESPACE}.${K8S_DOMAIN}
+
+cp /etc/hosts /tmp/hosts && sed "s/\(${HOSTNAME}\)/\1\.${DOMAIN} \1/" /tmp/hosts > /etc/hosts && rm -f /tmp/hosts
 
 old_hostname=${HOSTNAME}
-export HOSTNAME=${old_hostname}.${hstr}.${K8S_NAMESPACE}.${K8S_DOMAIN}
+export HOSTNAME=${old_hostname}.${DOMAIN}

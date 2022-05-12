@@ -16,3 +16,4 @@ RUN chmod a+rx /bin/entrypoint.sh
 # PRP nodes come without a domain
 # fix it at runtime
 COPY scripts/01_fix_domain.sh /etc/entrypoint/image-config.d/01_fix_domain.sh
+COPY scripts/20_fix_condor_domain.sh /etc/osg/image-init.d/20_fix_condor_domain.sh
