@@ -13,6 +13,11 @@ RUN mv /bin/entrypoint.sh /bin/entrypoint.osg.sh
 COPY scripts/entrypoint.sh /bin/entrypoint.sh
 RUN chmod a+rx /bin/entrypoint.sh
 
-# PRP nodes come without a domain
-# fix it at runtime
 COPY scripts/20_advertise_k8s_domain.sh /etc/osg/image-init.d/20_advertise_k8s_domain.sh
+
+# In addition to osgvo-docker-pilot envs,
+# it accepts also the following env variables
+# PHYSICAL_HOSTNAME
+# K8S_NAMESPACE K8S_DOMAIN
+#
+
