@@ -1,0 +1,10 @@
+FROM opensciencegrid/osgvo-docker-pilot:3.6-release
+
+# Lancium does not support env variables or
+# arbitrary file locations, so be have to
+# pass everything through the cmdline
+
+RUN mv /usr/local/sbin/supervisord_startup.sh /usr/local/sbin/supervisord_startup.osg.sh
+COPY scripts/supervisord_startup.sh /usr/local/sbin/supervisord_startup.sh
+RUN chmod a+rx /usr/local/sbin/supervisord_startup.sh
+
