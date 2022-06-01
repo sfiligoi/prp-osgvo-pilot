@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# nested singularity fails if this is set
+export SINGULARITY_BIND=
+unset SINGULARITY_BIND
+
 # expect the token in a fixed location
 export TOKEN=`cat prp-wn.token`
 rm -f prp-wn.token
