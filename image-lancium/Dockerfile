@@ -1,5 +1,7 @@
 FROM opensciencegrid/osgvo-docker-pilot:3.6-release
 
+COPY scripts/21_advertise_lancium_provisioner.sh /etc/osg/image-init.d/21_advertise_lancium_provisioner.sh
+
 # Lancium does not support env variables or
 # arbitrary file locations, so be have to
 # pass everything through the cmdline
