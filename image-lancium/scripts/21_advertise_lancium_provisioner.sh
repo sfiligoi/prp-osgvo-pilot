@@ -12,7 +12,7 @@ fi
 
 if [ "x${LANCIUM_PROVISIONER_NAME}" != "x" ]; then
   echo "LanciumProvisionerName=\"${LANCIUM_PROVISIONER_NAME}\"" >> "${PILOT_CONFIG_FILE}"
-  echo 'STARTD_STTRS = $(STARTD_EXPRS) LanciumProvisionerName'  >> "${PILOT_CONFIG_FILE}"
+  echo 'STARTD_EXPRS = $(STARTD_EXPRS) LanciumProvisionerName'  >> "${PILOT_CONFIG_FILE}"
 fi
 
 if [ "x${LANCIUM_JOB_NAME}" != "x" ]; then
